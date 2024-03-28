@@ -2,14 +2,13 @@
 import asyncio
 
 from aiogram import Bot, Dispatcher
-
-from bot.config import token
+from config import token
 
 bot = Bot(token=token)
 dp = Dispatcher()
 
 
-from bot.commands import commands_router
+from commands import commands_router
 
 
 async def main():
