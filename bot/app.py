@@ -11,14 +11,15 @@ dp = Dispatcher()
 from commands import commands_router
 
 
-async def main():
+async def lifespan(dp: Dispatcher):
     dp.include_router(commands_router)
+    return dp
+
+
+async def main():
+    dp = await lifespan(dp)
     await dp.start_polling(bot)
 
 
-def run_bot():
-    asyncio.run(main())
-
-
 if __name__ == "__main__":
-    run_bot()
+    asyncio.run(main())
