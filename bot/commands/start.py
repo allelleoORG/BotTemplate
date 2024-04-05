@@ -1,6 +1,6 @@
 from aiogram import types
 from aiogram.filters.command import CommandStart
-from bot.commands import commands_router
+from commands import commands_router
 
 
 @commands_router.message(CommandStart())

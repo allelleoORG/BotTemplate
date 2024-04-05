@@ -4,4 +4,4 @@ from aiogram import Router
 
 commands_router = Router()
 
-import bot.commands.start
+import commands.start
