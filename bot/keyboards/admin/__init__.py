@@ -1,3 +1,3 @@
 "Тут мы храним все используемые нами клавиатуры"
 
-from .admin import send_spam_keyboard
+from .SendSpamKeyBoard import keyboard as send_spam_keyboard

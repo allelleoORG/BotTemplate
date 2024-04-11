@@ -4,4 +4,5 @@ from aiogram import Router
 
 commands_router = Router()
 
+import commands.spam
 import commands.start
