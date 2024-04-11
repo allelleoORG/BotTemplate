@@ -2,22 +2,25 @@
 import asyncio
 
 from aiogram import Bot, Dispatcher
-from config import token
+from config import TOKEN, db_url, modules
 
-bot = Bot(token=token)
+bot = Bot(token=TOKEN)
 dp = Dispatcher()
+
+
+async def lifespan():
+    from database import init as init_database
+
+    await init_database(db_url, modules)
+    print("База данных инициализирована")
 
 
 from commands import commands_router
 
 
-async def lifespan(dp: Dispatcher):
-    dp.include_router(commands_router)
-    return dp
-
-
 async def main():
-    dp = await lifespan(dp)
+    await lifespan()
+    dp.include_router(commands_router)
     await dp.start_polling(bot)
 
 
